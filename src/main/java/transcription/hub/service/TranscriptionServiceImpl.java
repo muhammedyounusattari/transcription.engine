@@ -12,9 +12,9 @@ public class TranscriptionServiceImpl implements TranscriptionService {
 
 	@Override
 	public String processTranscription(PayLoad payload) {
-		ResponseEntity<String> response=  TranscriptionMapper.getMedia(payload);
+		ResponseEntity<byte[]> response=  TranscriptionMapper.getMedia(payload);
 		if(response.getStatusCode() == HttpStatus.OK){
-			TranscriptionMapper.postHybridTranscription(payload.getRecordingId());
+			TranscriptionMapper.postHybridTranscription(response, payload.getRecordingId());
 			TranscriptionMapper.createTranscriptionJob(payload);
 			
 		}
