@@ -1,6 +1,6 @@
 package transcription.hub.model;
 
-public class PayLoad {
+public class Payload {
 
 	private String applicationId;
 	private String jobId;
